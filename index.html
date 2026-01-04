@@ -4,34 +4,92 @@
   <meta charset="UTF-8">
   <title>العائلة</title>
   <style>
-    body { margin:0; font-family: Arial, sans-serif; background: #203a43; color:#fff; display:flex; justify-content:center; align-items:center; min-height:100vh; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; text-align:center; }
-    .card { background: rgba(255,255,255,0.12); padding:20px; border-radius:12px; cursor:pointer; transition:0.2s; }
-    .card:hover { transform:translateY(-6px); background: rgba(255,255,255,0.18); }
-    .icon { font-size:36px; margin-bottom:10px; }
-    .name { font-size:16px; font-weight:600; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .container {
+      width: 95%;
+      max-width: 900px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      padding: 20px 10px;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.35);
+    }
+    .icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .note {
+      margin-top: 22px;
+      padding: 14px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 12px;
+      display: none;
+      animation: fade .25s ease;
+    }
+    @keyframes fade { from {opacity: 0;} to {opacity: 1;} }
+    footer {
+      margin-top: 18px;
+      opacity: .8;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
-  <div class="grid">
-    <div class="card" onclick="location.href='ahmed.html'"><div class="icon">👤</div><div class="name">أحمد</div></div>
-    <div class="card" onclick="location.href='mohamed.html'"><div class="icon">👤</div><div class="name">محمد</div></div>
-    <div class="card" onclick="location.href='mahmoud.html'"><div class="icon">👤</div><div class="name">محمود</div></div>
-    <div class="card" onclick="location.href='abdullah.html'"><div class="icon">👤</div><div class="name">عبدالله</div></div>
-    <div class="card" onclick="location.href='elena.html'"><div class="icon">👤</div><div class="name">إلينا</div></div>
-    <div class="card" onclick="location.href='baba.html'"><div class="icon">💙</div><div class="name">بابا علاء رجب</div></div>
-    <div class="card" onclick="location.href='mama.html'"><div class="icon">❤️</div><div class="name">ماما هالة مصطفى</div></div>
+  <div class="container">
+    <h1>اختر الاسم</h1>
+    <div class="grid">
+      <div class="card" onclick="showNote('الأخ الأكبر')"><div class="icon">👤</div><div class="name">أحمد</div></div>
+      <div class="card" onclick="showNote('الأخ الأوسط 1')"><div class="icon">👤</div><div class="name">محمد</div></div>
+      <div class="card" onclick="showNote('الأخ الأوسط 2')"><div class="icon">👤</div><div class="name">محمود</div></div>
+      <div class="card" onclick="showNote('الأخ الأصغر')"><div class="icon">👤</div><div class="name">عبدالله</div></div>
+      <div class="card" onclick="showNote('زوجة أحمد')"><div class="icon">👤</div><div class="name">إلينا</div></div>
+      <div class="card" onclick="showNote('بابا')"><div class="icon">💙</div><div class="name">بابا علاء رجب</div></div>
+      <div class="card" onclick="showNote('ماما')"><div class="icon">❤️</div><div class="name">ماما هالة مصطفى</div></div>
+    </div>
+    <div id="note" class="note"></div>
+    <footer> مقدمة اليكم من عبظووووووووووووووووووو</footer>
   </div>
-<div id="note" class="note"></div>
-<footer>arise</footer>
-</div>
-<script>
-function showNote(text) {
-const note = document.getElementById('note');
-note.style.display = 'block';
-note.textContent = text;
-}
-</script>
+  <script>
+    function showNote(text) {
+      const note = document.getElementById('note');
+      note.style.display = 'block';
+      note.textContent = text;
+    }
+  </script>
 </body>
 </html>
 
